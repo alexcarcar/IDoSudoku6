@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+    <item
+        android:id="@+id/newGame"
+        android:title="@string/new_game"
+        android:onClick="onNewGameClick"/>
+
+    <item
+        android:id="@+id/aboutMeMenuItem"
+        android:title="@string/about"
+        android:onClick="onAboutClick" />
+
+</menu>

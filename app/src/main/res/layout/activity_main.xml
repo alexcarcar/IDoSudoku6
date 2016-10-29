@@ -1,17 +1,20 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
-    android:orientation="vertical"
     tools:context=".MainActivity">
+
     <TableLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:paddingTop="@dimen/activity_button">
+        android:layout_marginTop="32dp">
 
         <TableRow>
+
             <Button
                 android:id="@+id/cell00"
                 android:layout_width="@dimen/activity_button"
@@ -19,6 +22,7 @@
                 android:background="@color/color1"
                 android:onClick="onCellTouch"
                 android:text="@string/blank_cell" />
+
             <Button
                 android:id="@+id/cell01"
                 android:layout_width="@dimen/activity_button"
@@ -26,6 +30,7 @@
                 android:background="@color/color1"
                 android:onClick="onCellTouch"
                 android:text="@string/blank_cell" />
+
             <Button
                 android:id="@+id/cell02"
                 android:layout_width="@dimen/activity_button"
@@ -33,6 +38,7 @@
                 android:background="@color/color1"
                 android:onClick="onCellTouch"
                 android:text="@string/blank_cell" />
+
             <Button
                 android:id="@+id/cell03"
                 android:layout_width="@dimen/activity_button"
@@ -40,6 +46,7 @@
                 android:background="@color/color2"
                 android:onClick="onCellTouch"
                 android:text="@string/blank_cell" />
+
             <Button
                 android:id="@+id/cell04"
                 android:layout_width="@dimen/activity_button"
@@ -47,6 +54,7 @@
                 android:background="@color/color2"
                 android:onClick="onCellTouch"
                 android:text="@string/blank_cell" />
+
             <Button
                 android:id="@+id/cell05"
                 android:layout_width="@dimen/activity_button"
@@ -57,6 +65,7 @@
         </TableRow>
 
         <TableRow>
+
             <Button
                 android:id="@+id/cell10"
                 android:layout_width="@dimen/activity_button"
@@ -64,6 +73,7 @@
                 android:background="@color/color1"
                 android:onClick="onCellTouch"
                 android:text="@string/blank_cell" />
+
             <Button
                 android:id="@+id/cell11"
                 android:layout_width="@dimen/activity_button"
@@ -71,6 +81,7 @@
                 android:background="@color/color1"
                 android:onClick="onCellTouch"
                 android:text="@string/blank_cell" />
+
             <Button
                 android:id="@+id/cell12"
                 android:layout_width="@dimen/activity_button"
@@ -78,6 +89,7 @@
                 android:background="@color/color1"
                 android:onClick="onCellTouch"
                 android:text="@string/blank_cell" />
+
             <Button
                 android:id="@+id/cell13"
                 android:layout_width="@dimen/activity_button"
@@ -85,6 +97,7 @@
                 android:background="@color/color2"
                 android:onClick="onCellTouch"
                 android:text="@string/blank_cell" />
+
             <Button
                 android:id="@+id/cell14"
                 android:layout_width="@dimen/activity_button"
@@ -92,6 +105,7 @@
                 android:background="@color/color2"
                 android:onClick="onCellTouch"
                 android:text="@string/blank_cell" />
+
             <Button
                 android:id="@+id/cell15"
                 android:layout_width="@dimen/activity_button"
@@ -102,6 +116,7 @@
         </TableRow>
 
         <TableRow>
+
             <Button
                 android:id="@+id/cell20"
                 android:layout_width="@dimen/activity_button"
@@ -109,6 +124,7 @@
                 android:background="@color/color2"
                 android:onClick="onCellTouch"
                 android:text="@string/blank_cell" />
+
             <Button
                 android:id="@+id/cell21"
                 android:layout_width="@dimen/activity_button"
@@ -116,6 +132,7 @@
                 android:background="@color/color2"
                 android:onClick="onCellTouch"
                 android:text="@string/blank_cell" />
+
             <Button
                 android:id="@+id/cell22"
                 android:layout_width="@dimen/activity_button"
@@ -123,6 +140,7 @@
                 android:background="@color/color2"
                 android:onClick="onCellTouch"
                 android:text="@string/blank_cell" />
+
             <Button
                 android:id="@+id/cell23"
                 android:layout_width="@dimen/activity_button"
@@ -130,6 +148,7 @@
                 android:background="@color/color1"
                 android:onClick="onCellTouch"
                 android:text="@string/blank_cell" />
+
             <Button
                 android:id="@+id/cell24"
                 android:layout_width="@dimen/activity_button"
@@ -137,6 +156,7 @@
                 android:background="@color/color1"
                 android:onClick="onCellTouch"
                 android:text="@string/blank_cell" />
+
             <Button
                 android:id="@+id/cell25"
                 android:layout_width="@dimen/activity_button"
@@ -147,6 +167,7 @@
         </TableRow>
 
         <TableRow>
+
             <Button
                 android:id="@+id/cell30"
                 android:layout_width="@dimen/activity_button"
@@ -154,6 +175,7 @@
                 android:background="@color/color2"
                 android:onClick="onCellTouch"
                 android:text="@string/blank_cell" />
+
             <Button
                 android:id="@+id/cell31"
                 android:layout_width="@dimen/activity_button"
@@ -161,6 +183,7 @@
                 android:background="@color/color2"
                 android:onClick="onCellTouch"
                 android:text="@string/blank_cell" />
+
             <Button
                 android:id="@+id/cell32"
                 android:layout_width="@dimen/activity_button"
@@ -168,6 +191,7 @@
                 android:background="@color/color2"
                 android:onClick="onCellTouch"
                 android:text="@string/blank_cell" />
+
             <Button
                 android:id="@+id/cell33"
                 android:layout_width="@dimen/activity_button"
@@ -175,6 +199,7 @@
                 android:background="@color/color1"
                 android:onClick="onCellTouch"
                 android:text="@string/blank_cell" />
+
             <Button
                 android:id="@+id/cell34"
                 android:layout_width="@dimen/activity_button"
@@ -182,6 +207,7 @@
                 android:background="@color/color1"
                 android:onClick="onCellTouch"
                 android:text="@string/blank_cell" />
+
             <Button
                 android:id="@+id/cell35"
                 android:layout_width="@dimen/activity_button"
@@ -192,6 +218,7 @@
         </TableRow>
 
         <TableRow>
+
             <Button
                 android:id="@+id/cell40"
                 android:layout_width="@dimen/activity_button"
@@ -199,6 +226,7 @@
                 android:background="@color/color1"
                 android:onClick="onCellTouch"
                 android:text="@string/blank_cell" />
+
             <Button
                 android:id="@+id/cell41"
                 android:layout_width="@dimen/activity_button"
@@ -206,6 +234,7 @@
                 android:background="@color/color1"
                 android:onClick="onCellTouch"
                 android:text="@string/blank_cell" />
+
             <Button
                 android:id="@+id/cell42"
                 android:layout_width="@dimen/activity_button"
@@ -213,6 +242,7 @@
                 android:background="@color/color1"
                 android:onClick="onCellTouch"
                 android:text="@string/blank_cell" />
+
             <Button
                 android:id="@+id/cell43"
                 android:layout_width="@dimen/activity_button"
@@ -220,6 +250,7 @@
                 android:background="@color/color2"
                 android:onClick="onCellTouch"
                 android:text="@string/blank_cell" />
+
             <Button
                 android:id="@+id/cell44"
                 android:layout_width="@dimen/activity_button"
@@ -227,6 +258,7 @@
                 android:background="@color/color2"
                 android:onClick="onCellTouch"
                 android:text="@string/blank_cell" />
+
             <Button
                 android:id="@+id/cell45"
                 android:layout_width="@dimen/activity_button"
@@ -237,6 +269,7 @@
         </TableRow>
 
         <TableRow>
+
             <Button
                 android:id="@+id/cell50"
                 android:layout_width="@dimen/activity_button"
@@ -244,6 +277,7 @@
                 android:background="@color/color1"
                 android:onClick="onCellTouch"
                 android:text="@string/blank_cell" />
+
             <Button
                 android:id="@+id/cell51"
                 android:layout_width="@dimen/activity_button"
@@ -251,6 +285,7 @@
                 android:background="@color/color1"
                 android:onClick="onCellTouch"
                 android:text="@string/blank_cell" />
+
             <Button
                 android:id="@+id/cell52"
                 android:layout_width="@dimen/activity_button"
@@ -258,6 +293,7 @@
                 android:background="@color/color1"
                 android:onClick="onCellTouch"
                 android:text="@string/blank_cell" />
+
             <Button
                 android:id="@+id/cell53"
                 android:layout_width="@dimen/activity_button"
@@ -265,6 +301,7 @@
                 android:background="@color/color2"
                 android:onClick="onCellTouch"
                 android:text="@string/blank_cell" />
+
             <Button
                 android:id="@+id/cell54"
                 android:layout_width="@dimen/activity_button"
@@ -272,6 +309,7 @@
                 android:background="@color/color2"
                 android:onClick="onCellTouch"
                 android:text="@string/blank_cell" />
+
             <Button
                 android:id="@+id/cell55"
                 android:layout_width="@dimen/activity_button"
@@ -281,62 +319,70 @@
                 android:text="@string/blank_cell" />
         </TableRow>
     </TableLayout>
-    <TableLayout
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:paddingTop="@dimen/activity_button">
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="18dp"
+        android:orientation="horizontal">
 
-        <TableRow>
-            <Button
-                android:id="@+id/choose1"
-                android:layout_width="@dimen/activity_button"
-                android:layout_height="@dimen/activity_button"
-                android:background="@color/off_color"
-                android:onClick="onChoice"
-                android:text="@string/number1" />
-            <Button
-                android:id="@+id/choose2"
-                android:layout_width="@dimen/activity_button"
-                android:layout_height="@dimen/activity_button"
-                android:background="@color/off_color"
-                android:onClick="onChoice"
-                android:text="@string/number2" />
-            <Button
-                android:id="@+id/choose3"
-                android:layout_width="@dimen/activity_button"
-                android:layout_height="@dimen/activity_button"
-                android:background="@color/off_color"
-                android:onClick="onChoice"
-                android:text="@string/number3" />
-            <Button
-                android:id="@+id/choose4"
-                android:layout_width="@dimen/activity_button"
-                android:layout_height="@dimen/activity_button"
-                android:background="@color/off_color"
-                android:onClick="onChoice"
-                android:text="@string/number4" />
-            <Button
-                android:id="@+id/choose5"
-                android:layout_width="@dimen/activity_button"
-                android:layout_height="@dimen/activity_button"
-                android:background="@color/off_color"
-                android:onClick="onChoice"
-                android:text="@string/number5" />
-            <Button
-                android:id="@+id/choose6"
-                android:layout_width="@dimen/activity_button"
-                android:layout_height="@dimen/activity_button"
-                android:background="@color/off_color"
-                android:onClick="onChoice"
-                android:text="@string/number6" />
-            <Button
-                android:id="@+id/choose_delete"
-                android:layout_width="@dimen/activity_button"
-                android:layout_height="@dimen/activity_button"
-                android:background="@color/off_color"
-                android:onClick="onChoice"
-                android:text="@string/delete" />
-        </TableRow>
-    </TableLayout>
-</LinearLayout>
+        <Button
+            android:id="@+id/choose1"
+            android:layout_width="45dp"
+            android:layout_height="match_parent"
+            android:background="@color/off_color"
+            android:onClick="onChoice"
+            android:text="@string/number1" />
+
+        <Button
+            android:id="@+id/choose2"
+            android:layout_width="45dp"
+            android:layout_height="match_parent"
+            android:background="@color/off_color"
+            android:onClick="onChoice"
+            android:text="@string/number2" />
+
+        <Button
+            android:id="@+id/choose3"
+            android:layout_width="45dp"
+            android:layout_height="match_parent"
+            android:background="@color/off_color"
+            android:onClick="onChoice"
+            android:text="@string/number3" />
+
+        <Button
+            android:id="@+id/choose4"
+            android:layout_width="45dp"
+            android:layout_height="match_parent"
+            android:background="@color/off_color"
+            android:onClick="onChoice"
+            android:text="@string/number4" />
+
+        <Button
+            android:id="@+id/choose5"
+            android:layout_width="45dp"
+            android:layout_height="match_parent"
+            android:background="@color/off_color"
+            android:onClick="onChoice"
+            android:text="@string/number5" />
+
+        <Button
+            android:id="@+id/choose6"
+            android:layout_width="45dp"
+            android:layout_height="match_parent"
+            android:background="@color/off_color"
+            android:onClick="onChoice"
+            android:text="@string/number6" />
+
+        <Button
+            android:id="@+id/choose_delete"
+            android:layout_width="45dp"
+            android:layout_height="match_parent"
+            android:background="@color/off_color"
+            android:onClick="onChoice"
+            android:text="@string/delete" />
+    </LinearLayout>
+
+</RelativeLayout>

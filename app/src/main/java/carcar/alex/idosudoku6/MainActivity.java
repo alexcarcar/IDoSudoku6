@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
             }
             Button lastButton = (Button) findViewById(lastId);
-            lastButton.setBackgroundResource(R.color.off_color);
+            lastButton.setBackgroundResource(R.drawable.off_button);
         }
     }
     public void onChoice(View a) {
@@ -139,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
         if (a.getId() == R.id.choose5) selected = 5;
         if (a.getId() == R.id.choose6) selected = 6;
         if (a.getId() == R.id.choose_delete) selected = 0;
-        a.setBackgroundResource(R.color.on_color);
+        a.setBackgroundResource(R.drawable.on_button);
     }
 
     public void onAboutClick(MenuItem item) {

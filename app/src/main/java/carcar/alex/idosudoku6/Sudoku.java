@@ -4,13 +4,11 @@ package carcar.alex.idosudoku6;
  * Created by Local User on 1/5/2016.
  */
 public class Sudoku {
+    public static int board[][];
+    public static boolean hide[][];
     private static int BOARD_SIZE;
     private static int GROUP_WIDTH;
     private static int GROUP_HEIGHT;
-
-    public static int board[][];
-    public static boolean hide[][];
-
     private static boolean exclude[];
 
     private static void defineBoard(int size, int width) {
@@ -40,6 +38,7 @@ public class Sudoku {
             for (int j = 0; j < BOARD_SIZE; j++) {
                 if(Math.random()<percent) {
                     hide[i][j] = true;
+                    board[i][j] = 0;
                 } else {
                     hide[i][j] = false;
                 }
@@ -110,10 +109,7 @@ public class Sudoku {
     }
 
     public static boolean isHidden(int x, int y) {
-        if (hide[x][y])
-            return true;
-        else
-            return false;
+        return hide[x][y];
     }
     private static boolean isExcluded(int n) {
         return exclude[n - 1];
@@ -127,5 +123,20 @@ public class Sudoku {
             clearBoard();
         } while (fillBoard() == -1);
         printBoard();
+    }
+
+    public static void put(int x, int y, int value) {
+        board[x][y] = value;
+    }
+
+    public static boolean complete() {
+        for (int i = 0; i < BOARD_SIZE; i++) {
+            for (int j = 0; j < BOARD_SIZE; j++) {
+                if (board[i][j] == 0) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }

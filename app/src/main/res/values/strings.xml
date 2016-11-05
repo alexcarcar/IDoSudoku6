@@ -15,4 +15,6 @@
     <string name="number2">2</string>
     <string name="number1">1</string>
     <string name="email_address">alexcarcar77@gmail.com</string>
+    <string name="check">Check</string>
+    <string name="congratulations">Congratulations!</string>
 </resources>

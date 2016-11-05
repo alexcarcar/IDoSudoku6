@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
     private static int selected = -1;
     private static int cellX = -1;
     private static int cellY = -1;
+    private LinearLayout successLayout;
+    private LinearLayout numberPad;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +58,18 @@ public class MainActivity extends AppCompatActivity {
             case 0: currentCell.setText(R.string.blank_cell); break;
         }
         currentCell.setTextColor(ContextCompat.getColor(this,R.color.text_color));
+        checkBoard(cellX, cellY, selected);
+    }
+
+    private void checkBoard(int x, int y, int value) {
+        Sudoku.put(x, y, value);
+        if (Sudoku.complete()) {
+            successLayout.setVisibility(View.VISIBLE);
+            numberPad.setVisibility(View.INVISIBLE);
+        } else {
+            successLayout.setVisibility(View.INVISIBLE);
+            numberPad.setVisibility(View.VISIBLE);
+        }
     }
 
     private void getCellCoordinates(int id) {
@@ -155,6 +170,10 @@ public class MainActivity extends AppCompatActivity {
         Sudoku.create();
         Sudoku.hide(0.55);
         displayBoard(Sudoku.board, Sudoku.hide);
+        successLayout = (LinearLayout) findViewById(R.id.successLayout);
+        numberPad = (LinearLayout) findViewById(R.id.numberPad);
+        successLayout.setVisibility(View.INVISIBLE);
+        numberPad.setVisibility(View.VISIBLE);
     }
 
     private void displayBoard(int[][] board, boolean[][] hide) {
@@ -224,4 +243,5 @@ public class MainActivity extends AppCompatActivity {
             currentCell.setTypeface(null, Typeface.BOLD);
         }
     }
+
 }

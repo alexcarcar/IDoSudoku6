@@ -5,12 +5,14 @@
 
     <item
         android:id="@+id/newGame"
+        android:icon="@drawable/ic_new_game"
+        android:onClick="onNewGameClick"
         android:title="@string/new_game"
-        android:onClick="onNewGameClick"/>
+        app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/aboutMeMenuItem"
-        android:title="@string/about"
-        android:onClick="onAboutClick" />
+        android:onClick="onAboutClick"
+        android:title="@string/about" />
 
 </menu>

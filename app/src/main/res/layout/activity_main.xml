@@ -5,100 +5,8 @@
     android:background="#ffffff"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="18dp"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/choose1"
-            android:layout_width="40dp"
-            android:layout_height="match_parent"
-            android:layout_margin="2dp"
-            android:background="@drawable/off_button"
-
-            android:onClick="onChoice"
-            android:text="@string/number1"
-            android:textSize="24sp"
-            android:textStyle="normal|bold" />
-
-        <Button
-            android:id="@+id/choose2"
-            android:layout_width="40dp"
-            android:layout_height="match_parent"
-            android:layout_margin="2dp"
-            android:background="@drawable/off_button"
-
-            android:onClick="onChoice"
-            android:text="@string/number2"
-            android:textSize="24sp"
-            android:textStyle="normal|bold" />
-
-        <Button
-            android:id="@+id/choose3"
-            android:layout_width="40dp"
-            android:layout_height="match_parent"
-            android:layout_margin="2dp"
-            android:background="@drawable/off_button"
-
-            android:onClick="onChoice"
-            android:text="@string/number3"
-            android:textSize="24sp"
-            android:textStyle="normal|bold" />
-
-        <Button
-            android:id="@+id/choose4"
-            android:layout_width="40dp"
-            android:layout_height="match_parent"
-            android:layout_margin="2dp"
-            android:background="@drawable/off_button"
-
-            android:onClick="onChoice"
-            android:text="@string/number4"
-            android:textSize="24sp"
-            android:textStyle="normal|bold" />
-
-        <Button
-            android:id="@+id/choose5"
-            android:layout_width="40dp"
-            android:layout_height="match_parent"
-            android:layout_margin="2dp"
-            android:background="@drawable/off_button"
-
-            android:onClick="onChoice"
-            android:text="@string/number5"
-            android:textSize="24sp"
-            android:textStyle="normal|bold" />
-
-        <Button
-            android:id="@+id/choose6"
-            android:layout_width="40dp"
-            android:layout_height="match_parent"
-            android:layout_margin="2dp"
-            android:background="@drawable/off_button"
-
-            android:onClick="onChoice"
-            android:text="@string/number6"
-            android:textSize="24sp"
-            android:textStyle="normal|bold" />
-
-        <Button
-            android:id="@+id/choose_delete"
-            android:layout_width="40dp"
-            android:layout_height="match_parent"
-            android:layout_margin="2dp"
-            android:background="@drawable/off_button"
-
-            android:onClick="onChoice"
-            android:text="@string/delete"
-            android:textSize="24sp"
-            android:textStyle="normal|bold" />
-    </LinearLayout>
-
     <TableLayout
+        android:id="@+id/gameGrid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -520,5 +428,119 @@
                 android:textStyle="normal" />
         </TableRow>
     </TableLayout>
+
+    <LinearLayout
+        android:id="@+id/successLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/congratulations" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/new_game" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/numberPad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="13dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/choose1"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:background="@drawable/off_button"
+            android:onClick="onChoice"
+            android:text="@string/number1"
+            android:textSize="24sp"
+            android:textStyle="normal|bold" />
+
+        <Button
+            android:id="@+id/choose2"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:background="@drawable/off_button"
+
+            android:onClick="onChoice"
+            android:text="@string/number2"
+            android:textSize="24sp"
+            android:textStyle="normal|bold" />
+
+        <Button
+            android:id="@+id/choose3"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:background="@drawable/off_button"
+
+            android:onClick="onChoice"
+            android:text="@string/number3"
+            android:textSize="24sp"
+            android:textStyle="normal|bold" />
+
+        <Button
+            android:id="@+id/choose4"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:background="@drawable/off_button"
+
+            android:onClick="onChoice"
+            android:text="@string/number4"
+            android:textSize="24sp"
+            android:textStyle="normal|bold" />
+
+        <Button
+            android:id="@+id/choose5"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:background="@drawable/off_button"
+
+            android:onClick="onChoice"
+            android:text="@string/number5"
+            android:textSize="24sp"
+            android:textStyle="normal|bold" />
+
+        <Button
+            android:id="@+id/choose6"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:background="@drawable/off_button"
+
+            android:onClick="onChoice"
+            android:text="@string/number6"
+            android:textSize="24sp"
+            android:textStyle="normal|bold" />
+
+        <Button
+            android:id="@+id/choose_delete"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:background="@drawable/off_button"
+
+            android:onClick="onChoice"
+            android:text="@string/delete"
+            android:textSize="24sp"
+            android:textStyle="normal|bold" />
+    </LinearLayout>
 
 </RelativeLayout>

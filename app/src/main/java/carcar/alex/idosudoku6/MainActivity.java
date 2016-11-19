@@ -164,6 +164,10 @@ public class MainActivity extends AppCompatActivity {
         createNewGame();
     }
 
+    public void onNewClick(View view) {
+        createNewGame();
+    }
+
     public void createNewGame() {
         setContentView(R.layout.activity_main);
         selected = -1;
@@ -243,5 +247,4 @@ public class MainActivity extends AppCompatActivity {
             currentCell.setTypeface(null, Typeface.BOLD);
         }
     }
-
 }

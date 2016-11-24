@@ -1,5 +1,4 @@
 // TODO
-// Show Win/Lose When Board Completed
 // Add Sounds On Click
 // Put Okay Button On About Page
 
@@ -15,7 +14,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private static int cellY = -1;
     private LinearLayout successLayout;
     private LinearLayout numberPad;
-    private TextView incompleteTextView;
+    private LinearLayout incompleteLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,11 +79,11 @@ public class MainActivity extends AppCompatActivity {
         Sudoku.put(x, y, value);
         if (Sudoku.complete()) {
             if (Sudoku.win()) {
-                incompleteTextView.setVisibility(View.INVISIBLE);
+                incompleteLayout.setVisibility(View.INVISIBLE);
                 successLayout.setVisibility(View.VISIBLE);
                 numberPad.setVisibility(View.INVISIBLE);
             } else {
-                incompleteTextView.setVisibility(View.VISIBLE);
+                incompleteLayout.setVisibility(View.VISIBLE);
             }
         } else {
             successLayout.setVisibility(View.INVISIBLE);
@@ -294,6 +292,10 @@ public class MainActivity extends AppCompatActivity {
         createNewGame();
     }
 
+    public void onClearClick(View view) {
+        clearGame();
+    }
+
     public void onNewClick(View view) {
         createNewGame();
     }
@@ -306,11 +308,19 @@ public class MainActivity extends AppCompatActivity {
         displayBoard(Sudoku.board, Sudoku.hide);
         successLayout = (LinearLayout) findViewById(R.id.successLayout);
         numberPad = (LinearLayout) findViewById(R.id.numberPad);
-        incompleteTextView = (TextView) findViewById(R.id.puzzleIncomplete);
+        incompleteLayout = (LinearLayout) findViewById(R.id.puzzleIncomplete);
 
         successLayout.setVisibility(View.INVISIBLE);
         numberPad.setVisibility(View.VISIBLE);
-        incompleteTextView.setVisibility(View.INVISIBLE);
+        incompleteLayout.setVisibility(View.INVISIBLE);
+    }
+
+    private void clearGame() {
+        Sudoku.restartGame();
+        displayBoard(Sudoku.board, Sudoku.hide);
+        successLayout.setVisibility(View.INVISIBLE);
+        numberPad.setVisibility(View.VISIBLE);
+        incompleteLayout.setVisibility(View.INVISIBLE);
     }
 
     private void displayBoard(int[][] board, boolean[][] hide) {

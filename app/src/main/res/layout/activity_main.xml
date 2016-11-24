@@ -526,12 +526,11 @@
         android:id="@+id/successLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/numberPad"
+        android:layout_below="@+id/gameGrid"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="9dp"
+        android:layout_marginTop="12dp"
         android:gravity="center"
         android:orientation="vertical"
-        android:paddingBottom="@dimen/activity_button"
         android:visibility="invisible">
 
         <TextView
@@ -540,28 +539,45 @@
             android:paddingBottom="10dp"
             android:text="@string/congratulations"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="10pt" />
+            android:textSize="21sp"
+            android:textStyle="normal|bold" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/off_button"
             android:onClick="onNewClick"
             android:text="@string/new_game" />
 
     </LinearLayout>
 
-    <TextView
+    <LinearLayout
         android:id="@+id/puzzleIncomplete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/gameGrid"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="12dp"
-        android:text="@string/puzzle_incomplete"
-        android:textAlignment="center"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="18sp"
-        android:textStyle="normal|bold"
-        android:visibility="invisible" />
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:text="@string/puzzle_incomplete"
+            android:textColor="@color/error_color"
+            android:textSize="21sp"
+            android:textStyle="normal|bold" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/off_button"
+            android:onClick="onClearClick"
+            android:text="@string/clear_board" />
+
+    </LinearLayout>
 
 </RelativeLayout>

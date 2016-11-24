@@ -17,5 +17,6 @@
     <string name="email_address">alexcarcar77@gmail.com</string>
     <string name="check">Check</string>
     <string name="congratulations">Congratulations!</string>
-    <string name="puzzle_incomplete">Sudoku puzzle is incomplete.</string>
+    <string name="puzzle_incomplete">Your puzzle has errors!</string>
+    <string name="clear_board">Replay</string>
 </resources>

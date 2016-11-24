@@ -1,19 +1,18 @@
 package carcar.alex.idosudoku6;
 
-/**
- * Created by Local User on 1/5/2016.
- */
-public class Sudoku {
-    public static int board[][];
-    public static boolean hide[][];
+class Sudoku {
+    static int board[][];
+    static boolean hide[][];
     private static int BOARD_SIZE;
     private static int GROUP_WIDTH;
     private static int GROUP_HEIGHT;
     private static boolean exclude[];
+    private static boolean checker[];
 
     private static void defineBoard(int size, int width) {
         board = null;
         exclude = null;
+        checker = null;
         hide = null;
         BOARD_SIZE = size;
         GROUP_WIDTH = width;
@@ -24,6 +23,7 @@ public class Sudoku {
         if (board == null) {
             board = new int[BOARD_SIZE][BOARD_SIZE];
             exclude = new boolean[BOARD_SIZE];
+            checker = new boolean[BOARD_SIZE];
             hide = new boolean[BOARD_SIZE][BOARD_SIZE];
         }
         for (int i = 0; i < BOARD_SIZE; i++) {
@@ -33,10 +33,30 @@ public class Sudoku {
         }
     }
 
-    public static void hide(double percent) {
+    private static void clearChecker() {
+        for (int i = 0; i < BOARD_SIZE; i++) {
+            checker[i] = false;
+        }
+    }
+
+    private static boolean isComplete() {
+        for (int i = 0; i < BOARD_SIZE; i++) {
+            if (!checker[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private static void mark(int value) {
+        if (value == 0) return; // square is not set
+        checker[value - 1] = true;
+    }
+
+    static void hide(double percent) {
         for (int i = 0; i < BOARD_SIZE; i++) {
             for (int j = 0; j < BOARD_SIZE; j++) {
-                if(Math.random()<percent) {
+                if (Math.random() < percent) {
                     hide[i][j] = true;
                     board[i][j] = 0;
                 } else {
@@ -45,6 +65,7 @@ public class Sudoku {
             }
         }
     }
+
     private static void printBoard() {
         for (int i = 0; i < BOARD_SIZE; i++) {
             for (int j = 0; j < BOARD_SIZE; j++) {
@@ -96,6 +117,23 @@ public class Sudoku {
         return n;
     }
 
+    private static boolean checkGroup(int i, int j) {
+        clearChecker();
+        int x = (j / GROUP_WIDTH) * GROUP_WIDTH;
+        int y = (i / GROUP_HEIGHT) * GROUP_HEIGHT;
+        for (int dy = 0; dy < GROUP_HEIGHT; dy++)
+            for (int dx = 0; dx < GROUP_WIDTH; dx++)
+                mark(board[y + dy][x + dx]);
+        return isComplete();
+    }
+
+    private static boolean checkGroups() {
+        for (int i = 0; i < BOARD_SIZE; i += GROUP_HEIGHT)
+            for (int j = 0; j < BOARD_SIZE; j += GROUP_WIDTH)
+                if (!checkGroup(i, j)) return false;
+        return true;
+    }
+
     private static void excludeGroup(int i, int j) {
         int x = (j / GROUP_WIDTH) * GROUP_WIDTH;
         int y = (i / GROUP_HEIGHT) * GROUP_HEIGHT;
@@ -108,16 +146,17 @@ public class Sudoku {
         if (n != 0) exclude[n - 1] = true;
     }
 
-    public static boolean isHidden(int x, int y) {
+    static boolean isHidden(int x, int y) {
         return hide[x][y];
     }
+
     private static boolean isExcluded(int n) {
         return exclude[n - 1];
     }
 
 	/* ================================================ */
 
-    public static void create() {
+    static void create() {
         defineBoard(6, 3);
         do {
             clearBoard();
@@ -125,11 +164,11 @@ public class Sudoku {
         printBoard();
     }
 
-    public static void put(int x, int y, int value) {
+    static void put(int x, int y, int value) {
         board[x][y] = value;
     }
 
-    public static boolean complete() {
+    static boolean complete() {
         for (int i = 0; i < BOARD_SIZE; i++) {
             for (int j = 0; j < BOARD_SIZE; j++) {
                 if (board[i][j] == 0) {
@@ -138,5 +177,33 @@ public class Sudoku {
             }
         }
         return true;
+    }
+
+    static boolean win() {
+
+        // check rows
+        for (int i = 0; i < BOARD_SIZE; i++) {
+            clearChecker();
+            for (int j = 0; j < BOARD_SIZE; j++) {
+                mark(board[i][j]);
+            }
+            if (!isComplete()) {
+                return false;
+            }
+        }
+
+        // check columns
+        for (int i = 0; i < BOARD_SIZE; i++) {
+            clearChecker();
+            for (int j = 0; j < BOARD_SIZE; j++) {
+                mark(board[j][i]);
+            }
+            if (!isComplete()) {
+                return false;
+            }
+        }
+
+        // check groups
+        return checkGroups();
     }
 }

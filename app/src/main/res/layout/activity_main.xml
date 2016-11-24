@@ -550,4 +550,18 @@
 
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/puzzleIncomplete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gameGrid"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:text="@string/puzzle_incomplete"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:textStyle="normal|bold"
+        android:visibility="invisible" />
+
 </RelativeLayout>

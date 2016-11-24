@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,15 +25,16 @@ public class MainActivity extends AppCompatActivity {
     private static int cellY = -1;
     private LinearLayout successLayout;
     private LinearLayout numberPad;
+    private TextView incompleteTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         createNewGame();
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
@@ -43,29 +45,48 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onCellTouch(View a) {
-        if(selected==-1) return;
+        if (selected == -1) return;
         Button currentCell = (Button) a;
         getCellCoordinates(currentCell.getId());
-        if(!Sudoku.isHidden(cellX,cellY)) return;
+        if (!Sudoku.isHidden(cellX, cellY)) return;
 
-        switch(selected) {
-            case 1: currentCell.setText(R.string.number1); break;
-            case 2: currentCell.setText(R.string.number2); break;
-            case 3: currentCell.setText(R.string.number3); break;
-            case 4: currentCell.setText(R.string.number4); break;
-            case 5: currentCell.setText(R.string.number5); break;
-            case 6: currentCell.setText(R.string.number6); break;
-            case 0: currentCell.setText(R.string.blank_cell); break;
+        switch (selected) {
+            case 1:
+                currentCell.setText(R.string.number1);
+                break;
+            case 2:
+                currentCell.setText(R.string.number2);
+                break;
+            case 3:
+                currentCell.setText(R.string.number3);
+                break;
+            case 4:
+                currentCell.setText(R.string.number4);
+                break;
+            case 5:
+                currentCell.setText(R.string.number5);
+                break;
+            case 6:
+                currentCell.setText(R.string.number6);
+                break;
+            case 0:
+                currentCell.setText(R.string.blank_cell);
+                break;
         }
-        currentCell.setTextColor(ContextCompat.getColor(this,R.color.text_color));
+        currentCell.setTextColor(ContextCompat.getColor(this, R.color.text_color));
         checkBoard(cellX, cellY, selected);
     }
 
     private void checkBoard(int x, int y, int value) {
         Sudoku.put(x, y, value);
         if (Sudoku.complete()) {
-            successLayout.setVisibility(View.VISIBLE);
-            numberPad.setVisibility(View.INVISIBLE);
+            if (Sudoku.win()) {
+                incompleteTextView.setVisibility(View.INVISIBLE);
+                successLayout.setVisibility(View.VISIBLE);
+                numberPad.setVisibility(View.INVISIBLE);
+            } else {
+                incompleteTextView.setVisibility(View.VISIBLE);
+            }
         } else {
             successLayout.setVisibility(View.INVISIBLE);
             numberPad.setVisibility(View.VISIBLE);
@@ -73,50 +94,158 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void getCellCoordinates(int id) {
-        switch(id) {
-            case R.id.cell00: cellX = 0; cellY =0; break;
-            case R.id.cell01: cellX = 0; cellY =1; break;
-            case R.id.cell02: cellX = 0; cellY =2; break;
-            case R.id.cell03: cellX = 0; cellY =3; break;
-            case R.id.cell04: cellX = 0; cellY =4; break;
-            case R.id.cell05: cellX = 0; cellY =5; break;
-            case R.id.cell10: cellX = 1; cellY =0; break;
-            case R.id.cell11: cellX = 1; cellY =1; break;
-            case R.id.cell12: cellX = 1; cellY =2; break;
-            case R.id.cell13: cellX = 1; cellY =3; break;
-            case R.id.cell14: cellX = 1; cellY =4; break;
-            case R.id.cell15: cellX = 1; cellY =5; break;
-            case R.id.cell20: cellX = 2; cellY =0; break;
-            case R.id.cell21: cellX = 2; cellY =1; break;
-            case R.id.cell22: cellX = 2; cellY =2; break;
-            case R.id.cell23: cellX = 2; cellY =3; break;
-            case R.id.cell24: cellX = 2; cellY =4; break;
-            case R.id.cell25: cellX = 2; cellY =5; break;
-            case R.id.cell30: cellX = 3; cellY =0; break;
-            case R.id.cell31: cellX = 3; cellY =1; break;
-            case R.id.cell32: cellX = 3; cellY =2; break;
-            case R.id.cell33: cellX = 3; cellY =3; break;
-            case R.id.cell34: cellX = 3; cellY =4; break;
-            case R.id.cell35: cellX = 3; cellY =5; break;
-            case R.id.cell40: cellX = 4; cellY =0; break;
-            case R.id.cell41: cellX = 4; cellY =1; break;
-            case R.id.cell42: cellX = 4; cellY =2; break;
-            case R.id.cell43: cellX = 4; cellY =3; break;
-            case R.id.cell44: cellX = 4; cellY =4; break;
-            case R.id.cell45: cellX = 4; cellY =5; break;
-            case R.id.cell50: cellX = 5; cellY =0; break;
-            case R.id.cell51: cellX = 5; cellY =1; break;
-            case R.id.cell52: cellX = 5; cellY =2; break;
-            case R.id.cell53: cellX = 5; cellY =3; break;
-            case R.id.cell54: cellX = 5; cellY =4; break;
-            case R.id.cell55: cellX = 5; cellY =5; break;
+        switch (id) {
+            case R.id.cell00:
+                cellX = 0;
+                cellY = 0;
+                break;
+            case R.id.cell01:
+                cellX = 0;
+                cellY = 1;
+                break;
+            case R.id.cell02:
+                cellX = 0;
+                cellY = 2;
+                break;
+            case R.id.cell03:
+                cellX = 0;
+                cellY = 3;
+                break;
+            case R.id.cell04:
+                cellX = 0;
+                cellY = 4;
+                break;
+            case R.id.cell05:
+                cellX = 0;
+                cellY = 5;
+                break;
+            case R.id.cell10:
+                cellX = 1;
+                cellY = 0;
+                break;
+            case R.id.cell11:
+                cellX = 1;
+                cellY = 1;
+                break;
+            case R.id.cell12:
+                cellX = 1;
+                cellY = 2;
+                break;
+            case R.id.cell13:
+                cellX = 1;
+                cellY = 3;
+                break;
+            case R.id.cell14:
+                cellX = 1;
+                cellY = 4;
+                break;
+            case R.id.cell15:
+                cellX = 1;
+                cellY = 5;
+                break;
+            case R.id.cell20:
+                cellX = 2;
+                cellY = 0;
+                break;
+            case R.id.cell21:
+                cellX = 2;
+                cellY = 1;
+                break;
+            case R.id.cell22:
+                cellX = 2;
+                cellY = 2;
+                break;
+            case R.id.cell23:
+                cellX = 2;
+                cellY = 3;
+                break;
+            case R.id.cell24:
+                cellX = 2;
+                cellY = 4;
+                break;
+            case R.id.cell25:
+                cellX = 2;
+                cellY = 5;
+                break;
+            case R.id.cell30:
+                cellX = 3;
+                cellY = 0;
+                break;
+            case R.id.cell31:
+                cellX = 3;
+                cellY = 1;
+                break;
+            case R.id.cell32:
+                cellX = 3;
+                cellY = 2;
+                break;
+            case R.id.cell33:
+                cellX = 3;
+                cellY = 3;
+                break;
+            case R.id.cell34:
+                cellX = 3;
+                cellY = 4;
+                break;
+            case R.id.cell35:
+                cellX = 3;
+                cellY = 5;
+                break;
+            case R.id.cell40:
+                cellX = 4;
+                cellY = 0;
+                break;
+            case R.id.cell41:
+                cellX = 4;
+                cellY = 1;
+                break;
+            case R.id.cell42:
+                cellX = 4;
+                cellY = 2;
+                break;
+            case R.id.cell43:
+                cellX = 4;
+                cellY = 3;
+                break;
+            case R.id.cell44:
+                cellX = 4;
+                cellY = 4;
+                break;
+            case R.id.cell45:
+                cellX = 4;
+                cellY = 5;
+                break;
+            case R.id.cell50:
+                cellX = 5;
+                cellY = 0;
+                break;
+            case R.id.cell51:
+                cellX = 5;
+                cellY = 1;
+                break;
+            case R.id.cell52:
+                cellX = 5;
+                cellY = 2;
+                break;
+            case R.id.cell53:
+                cellX = 5;
+                cellY = 3;
+                break;
+            case R.id.cell54:
+                cellX = 5;
+                cellY = 4;
+                break;
+            case R.id.cell55:
+                cellX = 5;
+                cellY = 5;
+                break;
         }
     }
 
     private void unhighlightLast() {
         if (selected != -1) {
             int lastId = 0;
-            switch(selected) {
+            switch (selected) {
                 case 1:
                     lastId = R.id.choose1;
                     break;
@@ -143,6 +272,7 @@ public class MainActivity extends AppCompatActivity {
             lastButton.setBackgroundResource(R.drawable.off_button);
         }
     }
+
     public void onChoice(View a) {
         unhighlightLast();
         if (a.getId() == R.id.choose1) selected = 1;
@@ -176,8 +306,11 @@ public class MainActivity extends AppCompatActivity {
         displayBoard(Sudoku.board, Sudoku.hide);
         successLayout = (LinearLayout) findViewById(R.id.successLayout);
         numberPad = (LinearLayout) findViewById(R.id.numberPad);
+        incompleteTextView = (TextView) findViewById(R.id.puzzleIncomplete);
+
         successLayout.setVisibility(View.INVISIBLE);
         numberPad.setVisibility(View.VISIBLE);
+        incompleteTextView.setVisibility(View.INVISIBLE);
     }
 
     private void displayBoard(int[][] board, boolean[][] hide) {
@@ -221,10 +354,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void displayCell(View v, int x, boolean hide) {
         Button currentCell = (Button) v;
-        if(hide) {
+        if (hide) {
             currentCell.setText(R.string.blank_cell);
         } else {
-            switch(x) {
+            switch (x) {
                 case 1:
                     currentCell.setText(R.string.number1);
                     break;

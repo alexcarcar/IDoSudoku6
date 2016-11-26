@@ -1,11 +1,8 @@
-// TODO
-// Add Sounds On Click
-// Put Okay Button On About Page
-
 package carcar.alex.idosudoku6;
 
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -17,10 +14,10 @@ import android.widget.LinearLayout;
 
 public class MainActivity extends AppCompatActivity {
 
-
     private static int selected = -1;
     private static int cellX = -1;
     private static int cellY = -1;
+    private MediaPlayer FXPlayer;
     private LinearLayout successLayout;
     private LinearLayout numberPad;
     private LinearLayout incompleteLayout;
@@ -42,6 +39,19 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    private void playSound(int _id) {
+        try {
+            if (FXPlayer != null) {
+                FXPlayer.stop();
+                FXPlayer.release();
+            }
+            FXPlayer = MediaPlayer.create(this, _id);
+            if (FXPlayer != null)
+                FXPlayer.start();
+        } catch (Exception e) {
+            System.err.println("playSound: " + e);
+        }
+    }
     public void onCellTouch(View a) {
         if (selected == -1) return;
         Button currentCell = (Button) a;
@@ -82,8 +92,10 @@ public class MainActivity extends AppCompatActivity {
                 incompleteLayout.setVisibility(View.INVISIBLE);
                 successLayout.setVisibility(View.VISIBLE);
                 numberPad.setVisibility(View.INVISIBLE);
+                playSound(R.raw.clapping);
             } else {
                 incompleteLayout.setVisibility(View.VISIBLE);
+                playSound(R.raw.buzzer);
             }
         } else {
             successLayout.setVisibility(View.INVISIBLE);

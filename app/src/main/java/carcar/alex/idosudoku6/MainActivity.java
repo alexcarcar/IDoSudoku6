@@ -304,10 +304,6 @@ public class MainActivity extends AppCompatActivity {
         createNewGame();
     }
 
-    public void onClearClick(View view) {
-        clearGame();
-    }
-
     public void onNewClick(View view) {
         createNewGame();
     }
@@ -322,14 +318,6 @@ public class MainActivity extends AppCompatActivity {
         numberPad = (LinearLayout) findViewById(R.id.numberPad);
         incompleteLayout = (LinearLayout) findViewById(R.id.puzzleIncomplete);
 
-        successLayout.setVisibility(View.INVISIBLE);
-        numberPad.setVisibility(View.VISIBLE);
-        incompleteLayout.setVisibility(View.INVISIBLE);
-    }
-
-    private void clearGame() {
-        Sudoku.restartGame();
-        displayBoard(Sudoku.board, Sudoku.hide);
         successLayout.setVisibility(View.INVISIBLE);
         numberPad.setVisibility(View.VISIBLE);
         incompleteLayout.setVisibility(View.INVISIBLE);

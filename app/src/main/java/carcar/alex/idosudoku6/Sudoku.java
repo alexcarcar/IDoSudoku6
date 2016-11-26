@@ -168,16 +168,6 @@ class Sudoku {
         board[x][y] = value;
     }
 
-    static void restartGame() {
-        for (int i = 0; i < BOARD_SIZE; i++) {
-            for (int j = 0; j < BOARD_SIZE; j++) {
-                if (hide[i][j]) {
-                    board[i][j] = 0;
-                }
-            }
-        }
-    }
-
     static boolean complete() {
         for (int i = 0; i < BOARD_SIZE; i++) {
             for (int j = 0; j < BOARD_SIZE; j++) {

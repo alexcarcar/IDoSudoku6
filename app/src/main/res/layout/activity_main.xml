@@ -571,13 +571,6 @@
             android:textSize="21sp"
             android:textStyle="normal|bold" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/off_button"
-            android:onClick="onClearClick"
-            android:text="@string/clear_board" />
-
     </LinearLayout>
 
 </RelativeLayout>

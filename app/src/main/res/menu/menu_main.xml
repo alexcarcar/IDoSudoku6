@@ -4,6 +4,13 @@
     tools:context=".MainActivity">
 
     <item
+        android:id="@+id/switchSymbols"
+        android:icon="@drawable/ic_action_letters"
+        android:onClick="onSwitchSymbolsClick"
+        android:title="@string/switch_symbols"
+        app:showAsAction="ifRoom" />
+
+    <item
         android:id="@+id/newGame"
         android:icon="@drawable/ic_new_game"
         android:onClick="onNewGameClick"

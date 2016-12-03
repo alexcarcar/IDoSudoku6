@@ -8,14 +8,14 @@
         android:icon="@drawable/ic_action_letters"
         android:onClick="onSwitchSymbolsClick"
         android:title="@string/switch_symbols"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" />
 
     <item
         android:id="@+id/newGame"
         android:icon="@drawable/ic_new_game"
         android:onClick="onNewGameClick"
         android:title="@string/new_game"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" />
 
     <item
         android:id="@+id/aboutMeMenuItem"

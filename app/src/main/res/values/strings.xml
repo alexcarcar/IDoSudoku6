@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">6x6 Sudoku</string>
+    <string name="app_name">Sudoku</string>
     <string name="new_game">New Game</string>
     <string name="blank_cell">-</string>
     <string name="about">About</string>
@@ -27,4 +27,6 @@
     <string name="clear_board">Replay</string>
     <string name="go_back">Back</string>
     <string name="switch_symbols">Switch Symbols</string>
+    <string name="sound_off">Sound Off</string>
+    <string name="sound_on">Sound On</string>
 </resources>

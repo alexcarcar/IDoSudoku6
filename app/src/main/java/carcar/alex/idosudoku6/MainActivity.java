@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout successLayout;
     private LinearLayout numberPad;
     private LinearLayout incompleteLayout;
+    private boolean soundOn = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void playSound(int _id) {
+        if (!soundOn) return;
         try {
             if (FXPlayer != null) {
                 FXPlayer.stop();
@@ -109,6 +111,23 @@ public class MainActivity extends AppCompatActivity {
         }
         currentCell.setTextColor(ContextCompat.getColor(this, R.color.text_color));
         checkBoard(cellX, cellY, selected);
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        loadPreferences(menu);
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    private void loadPreferences(Menu menu) {
+        MenuItem item = menu.findItem(R.id.soundClick);
+        if (soundOn) {
+            item.setTitle(getResources().getString(R.string.sound_on));
+            item.setIcon(R.drawable.ic_sound_on);
+        } else {
+            item.setTitle(getResources().getString(R.string.sound_off));
+            item.setIcon(R.drawable.ic_sound_off);
+        }
     }
 
     private void checkBoard(int x, int y, int value) {
@@ -304,7 +323,7 @@ public class MainActivity extends AppCompatActivity {
                     lastId = R.id.choose_delete;
                     break;
             }
-            Button lastButton = (Button) findViewById(lastId);
+            Button lastButton = findViewById(lastId);
             lastButton.setBackgroundResource(R.drawable.off_button);
         }
     }
@@ -340,9 +359,9 @@ public class MainActivity extends AppCompatActivity {
         Sudoku.create();
         Sudoku.hide(0.55);
         displayBoard(Sudoku.board, Sudoku.hide);
-        successLayout = (LinearLayout) findViewById(R.id.successLayout);
-        numberPad = (LinearLayout) findViewById(R.id.numberPad);
-        incompleteLayout = (LinearLayout) findViewById(R.id.puzzleIncomplete);
+        successLayout = findViewById(R.id.successLayout);
+        numberPad = findViewById(R.id.numberPad);
+        incompleteLayout = findViewById(R.id.puzzleIncomplete);
 
         successLayout.setVisibility(View.INVISIBLE);
         numberPad.setVisibility(View.VISIBLE);
@@ -455,5 +474,16 @@ public class MainActivity extends AppCompatActivity {
             item.setIcon(R.drawable.ic_action_letters);
         }
         createNewGame();
+    }
+
+    public void onSoundClick(MenuItem item) {
+        soundOn = !soundOn;
+        if (soundOn) {
+            item.setTitle(getResources().getString(R.string.sound_on));
+            item.setIcon(R.drawable.ic_sound_on);
+        } else {
+            item.setTitle(getResources().getString(R.string.sound_off));
+            item.setIcon(R.drawable.ic_sound_off);
+        }
     }
 }

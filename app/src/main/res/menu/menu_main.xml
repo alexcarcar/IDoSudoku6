@@ -4,10 +4,10 @@
     tools:context=".MainActivity">
 
     <item
-        android:id="@+id/switchSymbols"
-        android:icon="@drawable/ic_action_letters"
-        android:onClick="onSwitchSymbolsClick"
-        android:title="@string/switch_symbols"
+        android:id="@+id/soundClick"
+        android:icon="@drawable/ic_sound_on"
+        android:onClick="onSoundClick"
+        android:title="@string/sound_on"
         app:showAsAction="always" />
 
     <item
@@ -18,8 +18,16 @@
         app:showAsAction="always" />
 
     <item
+        android:id="@+id/switchSymbols"
+        android:icon="@drawable/ic_action_letters"
+        android:onClick="onSwitchSymbolsClick"
+        android:title="@string/switch_symbols"
+        app:showAsAction="always" />
+
+    <item
         android:id="@+id/aboutMeMenuItem"
         android:onClick="onAboutClick"
         android:title="@string/about" />
+
 
 </menu>

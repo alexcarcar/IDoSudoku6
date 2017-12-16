@@ -8,7 +8,7 @@ android {
         applicationId "carcar.alex.idosudoku6"
         minSdkVersion 14
         targetSdkVersion 26
-        versionCode 2
+        versionCode 3
         versionName "1.2.1"
     }
     buildTypes {

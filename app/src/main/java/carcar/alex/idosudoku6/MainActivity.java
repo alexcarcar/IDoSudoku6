@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
                 currentCell.setText(R.string.blank_cell);
                 break;
         }
-        currentCell.setTextColor(ContextCompat.getColor(this, R.color.text_color));
+        currentCell.setTextColor(ContextCompat.getColor(this, R.color.colorAccent));
         checkBoard(cellX, cellY, selected);
     }
 

@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/IDoSudoku6.iml" filepath="$PROJECT_DIR$/IDoSudoku6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/IDoSudoku6-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/IDoSudoku6-app.iml" group="IDoSudoku6/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ansvn-IDoSudoku6.iml" filepath="$PROJECT_DIR$/.idea/modules/ansvn-IDoSudoku6.iml" group="IDoSudoku6" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
